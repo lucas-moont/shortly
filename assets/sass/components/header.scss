@@ -4,3 +4,39 @@ header{
   display: flex;
   justify-content: center;
 }
+
+.headerInner{
+  display: flex;
+  gap: 32px;
+
+justify-content: space-between;}
+
+.headerCol{
+  display: flex;
+  align-items: center;
+  
+  &:first-of-type{
+    gap: 32px;
+  }
+
+  &:last-of-type{
+    gap: 16px;
+  }
+}
+
+.headerNavigation{
+  ul{
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.headerLink{
+  color: $grayishViolet;
+  font-weight: $boldWeight;
+  transition: 0.5s;
+
+  &:hover{
+    color: $veryDarkBlue;
+  }
+}

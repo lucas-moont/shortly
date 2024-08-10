@@ -1,0 +1,38 @@
+h1{
+  font-size: 5rem;
+  font-weight: $boldWeight;
+  line-height: 1.1em;
+  color: $veryDarkBlue;
+  margin: 0 0 8px;
+}
+
+#moreThanJustShortLinksSection{
+  padding: 77px 32px;
+  position: relative;
+  background-image: url('../images/illustration-working.svg');
+  background-repeat: no-repeat;
+  background-position-x: 125%;
+  background-size: contain;
+
+  .roundedBtn{
+    padding: 16px 50px;
+    font-size: 18px;
+  }
+
+  h2{
+    font-size: 1.5rem;
+    font-weight: $normalWeight;
+    line-height: 1.1em;
+    margin-bottom: 32px;
+  }
+}
+
+.moreThanJustShortLinksSectionInner{
+  display: flex;
+  align-items: center;
+}
+
+.moreThanJustShortLinksInnerCol{
+  width: 50%;
+  flex-shrink: 0;
+}

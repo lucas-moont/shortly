@@ -1,0 +1,15 @@
+.cyanBtn{
+  background-color: $cyan;
+  color: $white;
+  transition: 0.5s;
+  font-weight: $boldWeight;
+  display: inline-block;
+
+  &:hover{
+    background-color: $lighterCyan;
+  }
+}
+
+.roundedBtn{
+  border-radius: 30px;
+}

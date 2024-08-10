@@ -3,6 +3,10 @@ header{
   padding: 32px;
   display: flex;
   justify-content: center;
+
+  .roundedBtn{
+    padding: 10px 30px;
+  }
 }
 
 .headerInner{

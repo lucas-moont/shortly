@@ -1,6 +1,6 @@
 #advantagedStatisticsSection{
   background-color: $lightGrayishBlue;
-  padding: 0 32px 64px;
+  padding: 0 32px 154px;
 
   h2,
   .sectionSubtitle{
@@ -28,12 +28,31 @@
   position: relative;
   margin-top: 77px;
 
+  &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background-color: $cyan;
+    top: calc(50% - 4px);
+    z-index: 1;
+  }
+
   .advantagedStatisticsColumn{
     width: 33.3%;
     background-color: $white;
     padding: calc(45px + 32px) 32px 32px;
     border-radius: 8px;
     position: relative;
+    z-index: 6;
+
+    &:nth-of-type(2){
+      top: 45px;
+    }
+
+    &:nth-of-type(3){
+      top: 90px;
+    }
 
     p{
       font-size: 1rem;

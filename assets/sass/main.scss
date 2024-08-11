@@ -1,8 +1,9 @@
 @import './utils/variables.scss';
-@import './components/header.scss';
 @import './base/reset.scss';
 @import './base/container.scss';
-@import './components/more-than-just-shorter-links.scss';
 @import './base/globals.scss';
 @import './utils/flex-btn.scss';
-@import './base/buttons.scss'
+@import './base/buttons.scss';
+@import './components/header.scss';
+@import './components/more-than-just-shorter-links.scss';
+@import './components/short-links-generator.scss';

@@ -1,0 +1,52 @@
+#shortLinkGeneratorSection{
+  padding: 0 32px 128px;
+  background-color: $lightGrayishBlue;
+
+  .container{
+    position: relative;
+  }
+
+  .shortLinkGeneratorWrapper{
+    padding: 64px;
+    background-image: url(../images/bg-shorten-desktop.svg);
+    background-size: cover;
+    background-position: center;
+    background-color: $dakViolet;
+    border-radius: 20px;
+    position: absolute;
+    top: -96px;
+    width: 100%;
+  }
+
+  .shortLinkGenerator{
+    display: flex;
+    gap: 32px;
+
+    input{
+      flex: 1;
+      font-size: 1.25rem;
+      border: 0;
+      padding: 0 16px;
+      border: 2px solid $white;
+      border-radius: 10px;
+      
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+
+  .lessRoundedBtn{
+    display: flex;
+    font-size: 1.25rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 64px;
+    width: 186px;
+  }
+
+  .shortenedLinks{
+    margin-top: 128px;
+  }
+}

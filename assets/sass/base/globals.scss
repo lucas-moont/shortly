@@ -7,3 +7,9 @@ section {
   display: flex;
   justify-content: center;
 }
+
+.errorText{
+  margin: 8px 0 0;
+  color: $errorColor;
+  display: none;
+}

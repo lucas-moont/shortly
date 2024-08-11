@@ -73,9 +73,14 @@
       </section>
       <section id="shortLinkGeneratorSection">
         <div class="container">
-          <form action="" class="shortLinkGenerator">
-            <input type="text" name="link" id="shortLinkInput" />
-          </form>
+          <div class="shortLinkGeneratorWrapper">
+            <form action="" class="shortLinkGenerator">
+              <input type="text" name="link" id="shortLinkInput" />
+              <button class="cyanBtn lessRoundedBtn">Shorten It!</button>
+            </form>
+            <p class="errorText"><i>Please add a link</i></p>
+          </div>
+          <div class="shortenedLinks"></div>
         </div>
       </section>
     </main>

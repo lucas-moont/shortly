@@ -4,6 +4,7 @@
   transition: 0.5s;
   font-weight: $boldWeight;
   display: inline-block;
+  border: 0;
 
   &:hover{
     background-color: $lighterCyan;
@@ -12,4 +13,8 @@
 
 .roundedBtn{
   border-radius: 30px;
+}
+
+.lessRoundedBtn{
+  border-radius: 10px;
 }

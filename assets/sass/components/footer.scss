@@ -1,0 +1,35 @@
+footer{
+  padding: 64px 32px;
+  background-color: $veryDarkViolet;
+  display: flex;
+  justify-content: center;
+  color: #FFF;
+}
+
+.footerInner{
+  display: flex;
+  gap: 32px;
+
+  .col:first-of-type{
+    flex: 1;
+  }
+}
+
+.footerLogo{
+
+  path {
+    fill: #FFF !important;
+  }
+}
+
+.footerTitle{
+  margin-bottom: 32px;
+  font-weight: $boldWeight;
+  font-size: 1.125rem;
+}
+
+.footerNavigation{
+  a {
+    color: $grayishViolet;
+  }
+}

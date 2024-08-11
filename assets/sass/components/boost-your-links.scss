@@ -1,0 +1,25 @@
+#boostYourLinksSection{
+  padding: 64px 32px;
+  background-color: $darkViolet;
+  background-image: url('../images/bg-boost-desktop.svg');
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+
+  h2{
+    color: $white;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 32px;
+  }
+
+  .cyanBtn{
+    font-size: 1.25rem;
+    width: 200px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+}

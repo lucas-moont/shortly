@@ -1,0 +1,63 @@
+#advantagedStatisticsSection{
+  background-color: $lightGrayishBlue;
+  padding: 0 32px 64px;
+
+  h2,
+  .sectionSubtitle{
+    text-align: center;
+  }
+
+  h2{
+    font-size: 2.2rem;
+    color: $veryDarkBlue;
+    margin-bottom: 16px;
+  }
+
+  .sectionSubtitle{
+    font-size: 1.2rem;
+    font-weight: $normalWeight;
+    width: 518px;
+    margin: 0 auto;
+    color: $grayishViolet;
+  }
+}
+
+.advantagedStatisticsColumns{
+  display: flex;
+  gap: 32px;
+  position: relative;
+  margin-top: 77px;
+
+  .advantagedStatisticsColumn{
+    width: 33.3%;
+    background-color: $white;
+    padding: calc(45px + 32px) 32px 32px;
+    border-radius: 8px;
+    position: relative;
+
+    p{
+      font-size: 1rem;
+      font-weight: $normalWeight;
+      color: $grayishViolet;
+    }
+
+    .advantagedStatisticsIcon{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 85px;
+      width: 85px;
+      background-color: $darkViolet;
+      border-radius: 50%;
+      position: absolute;
+      top: -42px;
+    }
+  
+    .advantagedStatisticColumnTitle{
+      font-size: 1.375rem;
+      color: $veryDarkBlue;
+      margin-bottom: 32px;
+      line-height: 1.1em;
+    }
+  }
+}

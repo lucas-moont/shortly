@@ -1,12 +1,12 @@
-#shortLinkGeneratorSection{
+#shortLinkGeneratorSection {
   padding: 0 32px 128px;
   background-color: $lightGrayishBlue;
 
-  .container{
+  .container {
     position: relative;
   }
 
-  .shortLinkGeneratorWrapper{
+  .shortLinkGeneratorWrapper {
     padding: 64px;
     background-image: url(../images/bg-shorten-desktop.svg);
     background-size: cover;
@@ -18,35 +18,70 @@
     width: 100%;
   }
 
-  .shortLinkGenerator{
+  .shortLinkGenerator {
     display: flex;
     gap: 32px;
 
-    input{
+    input {
       flex: 1;
       font-size: 1.25rem;
       border: 0;
       padding: 0 16px;
       border: 2px solid $white;
       border-radius: 10px;
-      
-      &:focus{
+
+      &:focus {
         outline: none;
       }
     }
   }
 
-  .lessRoundedBtn{
-    display: flex;
-    font-size: 1.25rem;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    height: 64px;
-    width: 186px;
+  form {
+    .lessRoundedBtn {
+      display: flex;
+      font-size: 1.25rem;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      height: 64px;
+      width: 186px;
+    }
   }
 
-  .shortenedLinks{
+  .shortenedLinks {
     margin-top: 128px;
   }
+}
+
+.shortenedLinksWrapper {
+  padding-top: 128px;
+
+  .shortenedLinkLi{
+    padding: 32px;
+    background-color: $white;
+    border-radius: 8px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: $veryDarkBlue;
+  }
+}
+
+.completeLink{
+  display: inline-flex;
+  align-items: center;
+}
+
+.shortenedLinkAnchor{
+  color: $strongCyan;
+  margin-right: 16px;
+}
+
+.copyShortenedLink{
+  height: 45px;
+  width: 120px;
+  font-size: 18px;
 }

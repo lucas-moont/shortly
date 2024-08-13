@@ -1,0 +1,17 @@
+.horizontalSocialNetNav{
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+
+  a{
+    &:hover{
+      path{
+        fill: $cyan;
+      }
+    }
+  }
+
+  path{
+    transition: 0.5s;
+  }
+}

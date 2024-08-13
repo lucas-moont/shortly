@@ -4,11 +4,17 @@ footer{
   display: flex;
   justify-content: center;
   color: #FFF;
+
+  .socialNetNav{
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+  }
 }
 
 .footerInner{
   display: flex;
-  gap: 32px;
+  gap: 98px;
 
   .col:first-of-type{
     flex: 1;
@@ -31,5 +37,14 @@ footer{
 .footerNavigation{
   a {
     color: $grayishViolet;
+    transition: 0.5s;
+
+    &:hover{
+      color: $cyan;
+    }
+  }
+
+  li{
+    margin-bottom: 8px;
   }
 }

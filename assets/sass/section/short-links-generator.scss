@@ -99,6 +99,9 @@
   
     @include mobile{
       padding: 8px 0;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 1rem;
     }
   }
 }
@@ -106,15 +109,40 @@
 .completeLink{
   display: inline-flex;
   align-items: center;
+
+  @include mobile{
+    width: 100%;
+    padding: 0 16px 8px;
+    border-bottom: 2px solid $lightGrayishBlue;
+  }
 }
 
 .shortenedLinkAnchor{
   color: $strongCyan;
   margin-right: 16px;
+
+  @include mobile{
+    margin-right: 0;
+  }
 }
 
 .copyShortenedLink{
   height: 45px;
   width: 120px;
   font-size: 18px;
+
+  @include mobile{
+    height: 42px;
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+.shortenedLinksInteraction{
+  @include mobile{
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px 0;
+    gap: 8px;
+  }
 }

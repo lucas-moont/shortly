@@ -1,0 +1,5 @@
+.hideOnDesktop {
+  @media (min-width: 745px){
+    display: none !important;
+  }
+}

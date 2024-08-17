@@ -1,8 +1,10 @@
 @import './utils/variables.scss';
+@import './utils/_mobile.scss';
+@import './utils/hide-on-desktop.scss';
+@import './utils/flex-btn.scss';
 @import './base/reset.scss';
 @import './base/container.scss';
 @import './base/globals.scss';
-@import './utils/flex-btn.scss';
 @import './base/buttons.scss';
 @import './section/header.scss';
 @import './section/more-than-just-shorter-links.scss';
@@ -11,3 +13,4 @@
 @import './section/boost-your-links.scss';
 @import './section/footer.scss';
 @import './components/nav/horizontal-icons.scss';
+@import './components/nav/hamburg-btn.scss';

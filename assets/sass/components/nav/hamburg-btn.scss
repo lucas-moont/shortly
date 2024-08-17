@@ -1,0 +1,18 @@
+.hamburgBtn{
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  flex-direction: column;
+  gap: 6px;
+  display: inline-flex;
+
+  span{
+    background-color: $grayishViolet;
+    width: 25px;
+    height: 2px;
+  }
+
+  @include mobile{
+    display: inline-flex;
+  }
+}

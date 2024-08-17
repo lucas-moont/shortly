@@ -22,8 +22,10 @@
     width: 100%;
 
     @include mobile{
-      padding: 16px;
+      padding: 20px;
       width: 100%;
+      background-image: url(../images/bg-shorten-mobile.svg);
+
     }
   }
 

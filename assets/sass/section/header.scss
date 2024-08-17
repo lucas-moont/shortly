@@ -13,6 +13,10 @@ header {
   display: flex;
   gap: 32px;
   justify-content: space-between;
+
+  @include mobile{
+    position: relative;
+  }
 }
 
 .headerNavigation{
@@ -21,6 +25,17 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+
+  @include mobile{
+    position: absolute;
+    top: calc(100% + 16px);
+    width: 100%;
+    z-index: 2;
+    padding: 32px 16px;
+    background-color: $darkViolet;
+    border-radius: 8px;
+    flex-direction: column;
+  }
 }
 
 .headerCol {
@@ -41,6 +56,31 @@ header {
     display: flex;
     gap: 16px;
     align-items: center;
+  
+    @include mobile{
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &:nth-of-type(2){
+      @include mobile{
+        border-top: 1px solid $white;
+        padding-top: 16px;
+      }
+    }
+
+    li, a{
+      @include mobile{
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    a{
+      @include mobile{
+        color: $white;
+      }
+    }
   }
 }
 

@@ -4,6 +4,10 @@ header {
   display: flex;
   justify-content: center;
 
+  @include mobile{
+    padding: 16px;
+  }
+
   .roundedBtn {
     padding: 10px 30px;
   }
@@ -35,6 +39,7 @@ header {
     background-color: $darkViolet;
     border-radius: 8px;
     flex-direction: column;
+    display: none;
   }
 }
 

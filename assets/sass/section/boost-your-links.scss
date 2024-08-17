@@ -6,11 +6,21 @@
   background-size: cover;
   text-align: center;
 
+  @include mobile{
+    background-image: url('../images/bg-boost-mobile.svg');
+    padding: 128px 16px;
+  }
+
   h2{
     color: $white;
     text-align: center;
     font-size: 2.2rem;
     margin-bottom: 32px;
+
+    @include mobile{
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
   }
 
   .cyanBtn{
@@ -21,5 +31,10 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+
+    @include mobile{
+      font-size: 1rem;
+      height: 50px;
+    }
   }
 }

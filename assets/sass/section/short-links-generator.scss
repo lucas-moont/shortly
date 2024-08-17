@@ -2,6 +2,10 @@
   padding: 0 32px 128px;
   background-color: $lightGrayishBlue;
 
+  @include mobile{
+    padding: 0 16px 64px;
+  }
+
   .container {
     position: relative;
   }
@@ -16,11 +20,21 @@
     position: absolute;
     top: -96px;
     width: 100%;
+
+    @include mobile{
+      padding: 16px;
+      width: 100%;
+    }
   }
 
   .shortLinkGenerator {
     display: flex;
     gap: 32px;
+
+    @include mobile{
+      flex-direction: column;
+      gap: 8px;
+    }
 
     input {
       flex: 1;
@@ -32,6 +46,11 @@
 
       &:focus {
         outline: none;
+      }
+
+      @include mobile{
+        font-size: 16px;
+        padding: 12px 8px;
       }
     }
   }
@@ -45,6 +64,12 @@
       align-items: center;
       height: 64px;
       width: 186px;
+
+      @include mobile{
+        height: 50px;
+        width: 100%;
+        font-size: 1.125rem;
+      }
     }
   }
 
@@ -55,6 +80,10 @@
 
 .shortenedLinksWrapper {
   padding-top: 128px;
+
+  @include mobile{
+    padding-top: 64px;
+  }
 
   .shortenedLinkLi{
     padding: 32px;
@@ -67,6 +96,10 @@
     font-size: 1.375rem;
     font-weight: 500;
     color: $veryDarkBlue;
+  
+    @include mobile{
+      padding: 8px 0;
+    }
   }
 }
 

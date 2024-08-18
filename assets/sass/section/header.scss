@@ -29,6 +29,7 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  transition: 0.5s;
 
   @include mobile{
     position: absolute;
@@ -39,7 +40,8 @@ header {
     background-color: $darkViolet;
     border-radius: 8px;
     flex-direction: column;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

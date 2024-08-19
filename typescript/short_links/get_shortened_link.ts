@@ -1,12 +1,7 @@
 export async function getShortenedLink(url: string) {
   try {
     const urlEnconded = encodeURIComponent(url)
-    const cleanedUrlResponse = await fetch('https://cleanuri.com/api/v1/shorten', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: `url=${urlEnconded}`,
+    const cleanedUrlResponse = await fetch(`https://is.gd/create.php?format=simple&url=${urlEnconded}`, {
     })
 
     return cleanedUrlResponse

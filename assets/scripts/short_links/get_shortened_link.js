@@ -11,13 +11,7 @@ export function getShortenedLink(url) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const urlEnconded = encodeURIComponent(url);
-            const cleanedUrlResponse = yield fetch('https://cleanuri.com/api/v1/shorten', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `url=${urlEnconded}`,
-            });
+            const cleanedUrlResponse = yield fetch(`https://is.gd/create.php?format=simple&url=${urlEnconded}`, {});
             return cleanedUrlResponse;
         }
         catch (error) {

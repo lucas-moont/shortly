@@ -7,7 +7,6 @@ export async function getShortenedLink(url: string) {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: `url=${urlEnconded}`,
-      mode: 'no-cors'
     })
 
     return cleanedUrlResponse

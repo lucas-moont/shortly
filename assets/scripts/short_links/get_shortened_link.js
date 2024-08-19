@@ -17,7 +17,6 @@ export function getShortenedLink(url) {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 body: `url=${urlEnconded}`,
-                mode: 'no-cors'
             });
             return cleanedUrlResponse;
         }

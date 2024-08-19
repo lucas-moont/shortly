@@ -1,4 +1,12 @@
-export async function getShortenedLink(url: string) {
+interface getShortenedLinkResponse {
+  shortUrl: string;
+  message: string;
+  status: string;
+}
+
+export async function getShortenedLink(
+  url: string
+): Promise<getShortenedLinkResponse> {
   const token = "4oAY7YuNOrALuc7p0jGmMU2siwfwOZyosH034bfKd1Js5KSnUrlWAZ3XXg2p";
 
   try {
@@ -14,12 +22,24 @@ export async function getShortenedLink(url: string) {
     });
 
     if (!cleanedUrlResponse.ok) {
-      //TODO: MOSTRA O TEXTO DE ERRO
+      return {
+        status: "error",
+        message: "An error occured",
+        shortUrl: "",
+      };
     }
 
     const { data } = await cleanedUrlResponse.json();
-    return data.tiny_url;
+    return {
+      shortUrl: data.tiny_url,
+      message: "Success",
+      status: "Success",
+    };
   } catch (error) {
-    console.error(error);
+    return {
+      status: "error",
+      message: "An error occured",
+      shortUrl: "",
+    };
   }
 }

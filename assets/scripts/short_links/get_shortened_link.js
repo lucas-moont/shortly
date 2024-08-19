@@ -22,13 +22,25 @@ export function getShortenedLink(url) {
                 }),
             });
             if (!cleanedUrlResponse.ok) {
-                //TODO: MOSTRA O TEXTO DE ERRO
+                return {
+                    status: "error",
+                    message: "An error occured",
+                    shortUrl: "",
+                };
             }
             const { data } = yield cleanedUrlResponse.json();
-            return data.tiny_url;
+            return {
+                shortUrl: data.tiny_url,
+                message: "Success",
+                status: "Success",
+            };
         }
         catch (error) {
-            console.error(error);
+            return {
+                status: "error",
+                message: "An error occured",
+                shortUrl: "",
+            };
         }
     });
 }

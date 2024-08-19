@@ -1,3 +1,5 @@
+import { getShortenedLink } from "./get_shortened_link"
+
 const shortLinkForm = document.querySelector('.shortLinkGenerator')
 const shortLinkInput = document.querySelector('.shortLinkInput')
 
@@ -8,6 +10,10 @@ if(shortLinkForm && shortLinkInput){
   })
 }
 
-async function createShortLinkElement(url: string) {
-  
+async function createShortLinkElement(e: Event, url: string) {
+  e.preventDefault()
+  const shortenedUrlObject = await getShortenedLink(url)
+  if(shortenedUrlObject.status === 'error'){
+    
+  }
 }

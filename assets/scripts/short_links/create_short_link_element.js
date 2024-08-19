@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { getShortenedLink } from "./get_shortened_link";
 const shortLinkForm = document.querySelector('.shortLinkGenerator');
 const shortLinkInput = document.querySelector('.shortLinkInput');
 if (shortLinkForm && shortLinkInput) {
@@ -16,7 +16,11 @@ if (shortLinkForm && shortLinkInput) {
         shortLinkForm.querySelector('.');
     }));
 }
-function createShortLinkElement(url) {
+function createShortLinkElement(e, url) {
     return __awaiter(this, void 0, void 0, function* () {
+        e.preventDefault();
+        const shortenedUrlObject = yield getShortenedLink(url);
+        if (shortenedUrlObject.status === 'error') {
+        }
     });
 }

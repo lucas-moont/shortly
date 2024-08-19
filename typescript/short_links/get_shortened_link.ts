@@ -1,20 +1,25 @@
 export async function getShortenedLink(url: string) {
+  const token = "4oAY7YuNOrALuc7p0jGmMU2siwfwOZyosH034bfKd1Js5KSnUrlWAZ3XXg2p";
+
   try {
-    const urlEnconded = encodeURIComponent(url)
-    const cleanedUrlResponse = await fetch(`https://is.gd/create.php?format=simple&url=${urlEnconded}`, {
-    })
+    const cleanedUrlResponse = await fetch(`https://api.tinyurl.com/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        url,
+      }),
+    });
 
-    return cleanedUrlResponse
+    if (!cleanedUrlResponse.ok) {
+      //TODO: MOSTRA O TEXTO DE ERRO
+    }
+
+    const { data } = await cleanedUrlResponse.json();
+    return data.tiny_url;
   } catch (error) {
-    
+    console.error(error);
   }
-}
-
-const body = document.querySelector('body')
-
-if(body){
-  body.addEventListener('click', async () => {
-    const url = await getShortenedLink('https://google.com.br')
-    console.log(url)
-  })
 }

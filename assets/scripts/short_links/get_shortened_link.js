@@ -9,19 +9,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 export function getShortenedLink(url) {
     return __awaiter(this, void 0, void 0, function* () {
+        const token = "4oAY7YuNOrALuc7p0jGmMU2siwfwOZyosH034bfKd1Js5KSnUrlWAZ3XXg2p";
         try {
-            const urlEnconded = encodeURIComponent(url);
-            const cleanedUrlResponse = yield fetch(`https://is.gd/create.php?format=simple&url=${urlEnconded}`, {});
-            return cleanedUrlResponse;
+            const cleanedUrlResponse = yield fetch(`https://api.tinyurl.com/create`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    url,
+                }),
+            });
+            if (!cleanedUrlResponse.ok) {
+                //TODO: MOSTRA O TEXTO DE ERRO
+            }
+            const { data } = yield cleanedUrlResponse.json();
+            return data.tiny_url;
         }
         catch (error) {
+            console.error(error);
         }
     });
-}
-const body = document.querySelector('body');
-if (body) {
-    body.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
-        const url = yield getShortenedLink('https://google.com.br');
-        console.log(url);
-    }));
 }

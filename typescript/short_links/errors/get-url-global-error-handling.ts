@@ -1,6 +1,9 @@
 export class GetUrlErrorHandling extends Error {
-  constructor() {
+  errorText: HTMLParagraphElement
+
+  constructor(errorText: HTMLParagraphElement) {
     super('Ocorreu um erro')
+    this.errorText = errorText
     this.showErrorMessage()
   }
 

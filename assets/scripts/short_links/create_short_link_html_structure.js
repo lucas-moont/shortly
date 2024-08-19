@@ -7,16 +7,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling";
-import { getShortenedLink } from "./get_shortened_link";
+import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
+import { getShortenedLink } from "./get_shortened_link.js";
 const shortLinkForm = document.querySelector(".shortLinkGenerator");
-const shortLinkInput = document.querySelector(".shortLinkInput");
+const shortLinkInput = document.querySelector("#shortLinkInput");
 const errorText = document.querySelector(".errorText");
-if (shortLinkForm && shortLinkInput) {
+const shortenedLinksWrapper = document.querySelector(".shortenedLinksWrapper ul");
+if (shortLinkForm && shortLinkInput && shortenedLinksWrapper && errorText) {
     shortLinkForm.addEventListener("submit", (e) => __awaiter(void 0, void 0, void 0, function* () {
         e.preventDefault();
-        yield createShortLinkHTMLStructure();
+        yield createShortLinkHTMLStructure(shortLinkInput.value, shortenedLinksWrapper, errorText);
     }));
+}
+else {
+    console.log('algum elemento não existe: ' + shortLinkForm + shortLinkInput);
 }
 function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
     return __awaiter(this, void 0, void 0, function* () {

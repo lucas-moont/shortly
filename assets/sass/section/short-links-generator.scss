@@ -83,6 +83,12 @@
 .shortenedLinksWrapper {
   padding-top: 128px;
 
+  ul{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   @include mobile{
     padding-top: 64px;
   }
@@ -98,7 +104,8 @@
     font-size: 1.375rem;
     font-weight: 500;
     color: $veryDarkBlue;
-  
+    width: 100%;
+
     @include mobile{
       padding: 8px 0;
       flex-direction: column;

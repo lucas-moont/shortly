@@ -19,9 +19,6 @@ if (shortLinkForm && shortLinkInput && shortenedLinksWrapper && errorText) {
         yield createShortLinkHTMLStructure(shortLinkInput.value, shortenedLinksWrapper, errorText);
     }));
 }
-else {
-    console.log('algum elemento não existe: ' + shortLinkForm + shortLinkInput);
-}
 function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
     return __awaiter(this, void 0, void 0, function* () {
         const shortenedUrlObject = yield getShortenedLink(url);
@@ -45,7 +42,7 @@ function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
         a.innerText = shortenedUrlObject.shortUrl;
         button.innerText = "Copy";
         button.addEventListener("click", () => {
-            navigator.clipboard.writeText("Copiado");
+            navigator.clipboard.writeText(shortenedUrlObject.shortUrl);
         });
         shortenedLinksInteraction.append(a, button);
         completeLinkSpan.innerText = url;

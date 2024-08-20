@@ -1,5 +1,5 @@
-import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling";
-import { getShortenedLink } from "./get_shortened_link";
+import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
+import { getShortenedLink } from "./get_shortened_link.js";
 
 const shortLinkForm = document.querySelector(".shortLinkGenerator");
 const shortLinkInput: HTMLInputElement | null =
@@ -19,8 +19,6 @@ if (shortLinkForm && shortLinkInput && shortenedLinksWrapper && errorText) {
       errorText
     );
   });
-}else{
-  console.log('algum elemento não existe: ' + shortLinkForm + shortLinkInput)
 }
 
 async function createShortLinkHTMLStructure(
@@ -54,7 +52,7 @@ async function createShortLinkHTMLStructure(
   button.innerText = "Copy";
 
   button.addEventListener("click", () => {
-    navigator.clipboard.writeText("Copiado");
+    navigator.clipboard.writeText(shortenedUrlObject.shortUrl);
   });
 
   shortenedLinksInteraction.append(a, button);

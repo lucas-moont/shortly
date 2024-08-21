@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "./get_shortened_link.js";
-import { setupCopyClickEvents } from "./handlers/click-events.js";
+import { setupCopyClickEvents } from "../handlers/click-events.js";
 const shortLinkForm = document.querySelector(".shortLinkGenerator");
 const shortLinkInput = document.querySelector("#shortLinkInput");
 const errorText = document.querySelector(".errorText");

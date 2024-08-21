@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { copyLink } from "./copy_link.js";
 import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "./get_shortened_link.js";
 const shortLinkForm = document.querySelector(".shortLinkGenerator");
@@ -33,6 +34,7 @@ function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
         const button = document.createElement("button");
         const completeLinkSpan = document.createElement("span");
         const shortenedLinksInteraction = document.createElement("span");
+        const btns = document.querySelectorAll(".copyShortenedLink");
         li.classList.add("shortenedLinkLi");
         a.classList.add("shortenedLinkAnchor");
         button.classList.add("copyShortenedLink", "cyanBtn", "lessRoundedBtn");
@@ -41,9 +43,7 @@ function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
         a.href = shortenedUrlObject.shortUrl;
         a.innerText = shortenedUrlObject.shortUrl;
         button.innerText = "Copy";
-        button.addEventListener("click", () => {
-            navigator.clipboard.writeText(shortenedUrlObject.shortUrl);
-        });
+        button.addEventListener("click", () => copyLink(btns, button));
         shortenedLinksInteraction.append(a, button);
         completeLinkSpan.innerText = url;
         li.append(completeLinkSpan, shortenedLinksInteraction);

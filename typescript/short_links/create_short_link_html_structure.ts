@@ -1,3 +1,4 @@
+import { copyLink } from "./copy_link.js";
 import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "./get_shortened_link.js";
 
@@ -37,9 +38,11 @@ async function createShortLinkHTMLStructure(
 
   const li = document.createElement("li");
   const a = document.createElement("a");
-  const button = document.createElement("button");
+  const button: HTMLButtonElement = document.createElement("button");
   const completeLinkSpan = document.createElement("span");
   const shortenedLinksInteraction = document.createElement("span");
+  const btns: NodeListOf<HTMLButtonElement> =
+    document.querySelectorAll(".copyShortenedLink");
 
   li.classList.add("shortenedLinkLi");
   a.classList.add("shortenedLinkAnchor");
@@ -51,9 +54,7 @@ async function createShortLinkHTMLStructure(
   a.innerText = shortenedUrlObject.shortUrl;
   button.innerText = "Copy";
 
-  button.addEventListener("click", () => {
-    navigator.clipboard.writeText(shortenedUrlObject.shortUrl);
-  });
+  button.addEventListener("click", () => copyLink(btns, button));
 
   shortenedLinksInteraction.append(a, button);
   completeLinkSpan.innerText = url;

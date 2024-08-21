@@ -1,19 +1,9 @@
-import { copyLink } from "./copy_link.js";
 import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "./get_shortened_link.js";
 import { setupCopyClickEvents } from "../handlers/click-events.js";
 import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage.js";
 
-const shortLinkForm = document.querySelector(".shortLinkGenerator");
-const shortLinkInput: HTMLInputElement | null =
-  document.querySelector("#shortLinkInput");
-const errorText: HTMLParagraphElement | null =
-  document.querySelector(".errorText");
-const shortenedLinksWrapper: HTMLUListElement | null = document.querySelector(
-  ".shortenedLinksWrapper ul"
-);
-
-export async function createShortLinkHTMLStructure(
+export async function addShortLinkHTMLStructure(
   url: string,
   shortenedLinksUl: HTMLUListElement,
   errorText: HTMLParagraphElement

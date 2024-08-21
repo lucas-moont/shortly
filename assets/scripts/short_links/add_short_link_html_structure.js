@@ -11,7 +11,7 @@ import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "./get_shortened_link.js";
 import { setupCopyClickEvents } from "../handlers/click-events.js";
 import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage.js";
-export function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
+export function addShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
     return __awaiter(this, void 0, void 0, function* () {
         const shortenedUrlObject = yield getShortenedLink(url);
         if (shortenedUrlObject.status === "error") {

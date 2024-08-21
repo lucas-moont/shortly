@@ -1,4 +1,4 @@
-import { createShortLinkHTMLStructure } from "../short_links/create_short_link_html_structure.js"
+import { addShortLinkHTMLStructure } from "../short_links/add_short_link_html_structure.js"
 
 export async function setupFormSubmit() {
   const generateShortLinkForm = document.querySelector(".shortLinkGenerator")
@@ -27,7 +27,7 @@ async function processShortenedLinkFormSubmitHandler(
   errorText: HTMLParagraphElement | null
 ) {
   if (shortLinkInput && shortenedLinksWrapper && errorText) {
-    await createShortLinkHTMLStructure(
+    await addShortLinkHTMLStructure(
       shortLinkInput.value,
       shortenedLinksWrapper,
       errorText

@@ -7,9 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { setupHamburgMenu } from "./menu.js";
 import { setupCopyClickEvents } from "./short_links/handlers/click-events.js";
 import { setupFormSubmit } from "./short_links/handlers/form-submit.js";
 document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
     setupCopyClickEvents();
     setupFormSubmit();
+    setupHamburgMenu();
 }));

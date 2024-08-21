@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "./get_shortened_link.js";
 import { setupCopyClickEvents } from "../handlers/click-events.js";
+import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage.js";
 const shortLinkForm = document.querySelector(".shortLinkGenerator");
 const shortLinkInput = document.querySelector("#shortLinkInput");
 const errorText = document.querySelector(".errorText");
@@ -31,7 +32,7 @@ export function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
         li.classList.add("shortenedLinkLi");
         a.classList.add("shortenedLinkAnchor");
         button.classList.add("copyShortenedLink", "cyanBtn", "lessRoundedBtn");
-        button.setAttribute('href-to-be-copied', shortenedUrlObject.shortUrl);
+        button.setAttribute("href-to-be-copied", shortenedUrlObject.shortUrl);
         completeLinkSpan.classList.add("completeLink");
         shortenedLinksInteraction.classList.add("shortenedLinksInteraction");
         a.href = shortenedUrlObject.shortUrl;
@@ -39,8 +40,10 @@ export function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
         button.innerText = "Copy";
         shortenedLinksInteraction.append(a, button);
         completeLinkSpan.innerText = url;
-        li.append(completeLinkSpan, shortenedLinksInteraction, '');
+        li.append(completeLinkSpan, shortenedLinksInteraction, "");
         shortenedLinksUl.appendChild(li);
         setupCopyClickEvents();
+        const { shortLinksLocalStorageArray } = yield processShortLinksFromLocalStorage();
+        shortLinksLocalStorageArray.push(li);
     });
 }

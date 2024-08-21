@@ -7,20 +7,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { copyLink } from "./copy_link.js";
 import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "./get_shortened_link.js";
+import { setupCopyClickEvents } from "./handlers/click-events.js";
 const shortLinkForm = document.querySelector(".shortLinkGenerator");
 const shortLinkInput = document.querySelector("#shortLinkInput");
 const errorText = document.querySelector(".errorText");
 const shortenedLinksWrapper = document.querySelector(".shortenedLinksWrapper ul");
-if (shortLinkForm && shortLinkInput && shortenedLinksWrapper && errorText) {
-    shortLinkForm.addEventListener("submit", (e) => __awaiter(void 0, void 0, void 0, function* () {
-        e.preventDefault();
-        yield createShortLinkHTMLStructure(shortLinkInput.value, shortenedLinksWrapper, errorText);
-    }));
-}
-function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
+export function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
     return __awaiter(this, void 0, void 0, function* () {
         const shortenedUrlObject = yield getShortenedLink(url);
         if (shortenedUrlObject.status === "error") {
@@ -34,19 +28,19 @@ function createShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
         const button = document.createElement("button");
         const completeLinkSpan = document.createElement("span");
         const shortenedLinksInteraction = document.createElement("span");
-        const btns = document.querySelectorAll(".copyShortenedLink");
         li.classList.add("shortenedLinkLi");
         a.classList.add("shortenedLinkAnchor");
         button.classList.add("copyShortenedLink", "cyanBtn", "lessRoundedBtn");
+        button.setAttribute('href-to-be-copied', shortenedUrlObject.shortUrl);
         completeLinkSpan.classList.add("completeLink");
         shortenedLinksInteraction.classList.add("shortenedLinksInteraction");
         a.href = shortenedUrlObject.shortUrl;
         a.innerText = shortenedUrlObject.shortUrl;
         button.innerText = "Copy";
-        button.addEventListener("click", () => copyLink(btns, button));
         shortenedLinksInteraction.append(a, button);
         completeLinkSpan.innerText = url;
-        li.append(completeLinkSpan, shortenedLinksInteraction);
+        li.append(completeLinkSpan, shortenedLinksInteraction, '');
         shortenedLinksUl.appendChild(li);
+        setupCopyClickEvents();
     });
 }

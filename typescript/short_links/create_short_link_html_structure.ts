@@ -12,18 +12,7 @@ const shortenedLinksWrapper: HTMLUListElement | null = document.querySelector(
   ".shortenedLinksWrapper ul"
 )
 
-if (shortLinkForm && shortLinkInput && shortenedLinksWrapper && errorText) {
-  shortLinkForm.addEventListener("submit", async (e) => {
-    e.preventDefault()
-    await createShortLinkHTMLStructure(
-      shortLinkInput.value,
-      shortenedLinksWrapper,
-      errorText
-    )
-  })
-}
-
-async function createShortLinkHTMLStructure(
+export async function createShortLinkHTMLStructure(
   url: string,
   shortenedLinksUl: HTMLUListElement,
   errorText: HTMLParagraphElement
@@ -42,12 +31,11 @@ async function createShortLinkHTMLStructure(
   const button: HTMLButtonElement = document.createElement("button")
   const completeLinkSpan = document.createElement("span")
   const shortenedLinksInteraction = document.createElement("span")
-  const btns: NodeListOf<HTMLButtonElement> =
-    document.querySelectorAll(".copyShortenedLink")
 
   li.classList.add("shortenedLinkLi")
   a.classList.add("shortenedLinkAnchor")
   button.classList.add("copyShortenedLink", "cyanBtn", "lessRoundedBtn")
+  button.setAttribute('href-to-be-copied', shortenedUrlObject.shortUrl)
   completeLinkSpan.classList.add("completeLink")
   shortenedLinksInteraction.classList.add("shortenedLinksInteraction")
 
@@ -55,12 +43,12 @@ async function createShortLinkHTMLStructure(
   a.innerText = shortenedUrlObject.shortUrl
   button.innerText = "Copy"
 
-  setupCopyClickEvents()
-
   shortenedLinksInteraction.append(a, button)
   completeLinkSpan.innerText = url
 
-  li.append(completeLinkSpan, shortenedLinksInteraction)
+  li.append(completeLinkSpan, shortenedLinksInteraction, '')
 
   shortenedLinksUl.appendChild(li)
+
+  setupCopyClickEvents()
 }

@@ -1,4 +1,4 @@
-import { processShortLinksFromLocalStorage } from "../process_short_links_local_storage";
+import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage";
 
 export async function buildShortLinksHtmlFromLocalStorage(listElement: HTMLUListElement) {
   const { shortLinksLocalStorageArray } =

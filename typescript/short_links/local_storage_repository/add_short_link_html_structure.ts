@@ -1,7 +1,8 @@
 import { GetUrlErrorHandling } from "../errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "../get_shortened_link.js";
 import { setupCopyClickEvents } from "../../handlers/click-events.js";
-import { processShortLinksFromLocalStorage } from "../process_short_links_local_storage.js";
+import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage.js";
+import { updateShortLinksAtLocalStorage } from "./update_short_links_at_local_storage.js";
 
 export async function addShortLinkHTMLStructure(
   url: string,
@@ -42,10 +43,5 @@ export async function addShortLinkHTMLStructure(
   shortenedLinksUl.appendChild(li);
 
   setupCopyClickEvents();
-
-  const { shortLinksLocalStorageArray } =
-    await processShortLinksFromLocalStorage();
-
-  shortLinksLocalStorageArray.push(li.outerHTML)
-  localStorage.setItem('short_links', JSON.stringify(shortLinksLocalStorageArray))
+  updateShortLinksAtLocalStorage(li)
 }

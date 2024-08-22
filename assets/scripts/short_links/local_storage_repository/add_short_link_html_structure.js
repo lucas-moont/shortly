@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { GetUrlErrorHandling } from "../errors/get-url-global-error-handling.js";
 import { getShortenedLink } from "../get_shortened_link.js";
 import { setupCopyClickEvents } from "../../handlers/click-events.js";
-import { processShortLinksFromLocalStorage } from "../process_short_links_local_storage.js";
+import { updateShortLinksAtLocalStorage } from "./update_short_links_at_local_storage.js";
 export function addShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
     return __awaiter(this, void 0, void 0, function* () {
         const shortenedUrlObject = yield getShortenedLink(url);
@@ -39,8 +39,6 @@ export function addShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
         li.append(completeLinkSpan, shortenedLinksInteraction, "");
         shortenedLinksUl.appendChild(li);
         setupCopyClickEvents();
-        const { shortLinksLocalStorageArray } = yield processShortLinksFromLocalStorage();
-        shortLinksLocalStorageArray.push(li.outerHTML);
-        localStorage.setItem('short_links', JSON.stringify(shortLinksLocalStorageArray));
+        updateShortLinksAtLocalStorage(li);
     });
 }

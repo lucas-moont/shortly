@@ -7,11 +7,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage.js";
-export function updateShortLinksAtLocalStorage(liElement) {
+export function processShortLinksFromLocalStorage() {
     return __awaiter(this, void 0, void 0, function* () {
-        const { shortLinksLocalStorageArray } = yield processShortLinksFromLocalStorage();
-        shortLinksLocalStorageArray.push(liElement.outerHTML);
-        localStorage.setItem('short_links', JSON.stringify(shortLinksLocalStorageArray));
+        if (!localStorage.getItem("short_links")) {
+            localStorage.setItem("short_links", JSON.stringify([]));
+        }
+        const shortLinksLocalStorage = localStorage.getItem("short_links") || '[]';
+        const shortLinksLocalStorageArray = JSON.parse(shortLinksLocalStorage);
+        return { shortLinksLocalStorageArray };
     });
 }

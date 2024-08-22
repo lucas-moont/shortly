@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { addShortLinkHTMLStructure } from "../short_links/add_short_link_html_structure.js";
+import { addShortLinkHTMLStructure } from "../short_links/local_storage_repository/add_short_link_html_structure.js";
 export function setupFormSubmit() {
     return __awaiter(this, void 0, void 0, function* () {
         const generateShortLinkForm = document.querySelector(".shortLinkGenerator");

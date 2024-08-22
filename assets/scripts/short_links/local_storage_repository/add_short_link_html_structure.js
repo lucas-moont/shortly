@@ -7,10 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { GetUrlErrorHandling } from "./errors/get-url-global-error-handling.js";
-import { getShortenedLink } from "./get_shortened_link.js";
-import { setupCopyClickEvents } from "../handlers/click-events.js";
-import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage.js";
+import { GetUrlErrorHandling } from "../errors/get-url-global-error-handling.js";
+import { getShortenedLink } from "../get_shortened_link.js";
+import { setupCopyClickEvents } from "../../handlers/click-events.js";
+import { processShortLinksFromLocalStorage } from "../process_short_links_local_storage.js";
 export function addShortLinkHTMLStructure(url, shortenedLinksUl, errorText) {
     return __awaiter(this, void 0, void 0, function* () {
         const shortenedUrlObject = yield getShortenedLink(url);

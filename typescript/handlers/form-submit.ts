@@ -1,4 +1,4 @@
-import { addShortLinkHTMLStructure } from "../short_links/add_short_link_html_structure.js"
+import { addShortLinkHTMLStructure } from "../short_links/local_storage_repository/add_short_link_html_structure.js"
 
 export async function setupFormSubmit() {
   const generateShortLinkForm = document.querySelector(".shortLinkGenerator")

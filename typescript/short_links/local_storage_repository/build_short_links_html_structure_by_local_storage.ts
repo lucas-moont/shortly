@@ -1,12 +1,14 @@
-import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage";
+import { processShortLinksFromLocalStorage } from "./process_short_links_local_storage.js";
 
-export async function buildShortLinksHtmlFromLocalStorage(listElement: HTMLUListElement) {
+export async function buildShortLinksHtmlFromLocalStorage(listElement: HTMLUListElement | null) {
   const { shortLinksLocalStorageArray } =
     await processShortLinksFromLocalStorage();
 
     if(shortLinksLocalStorageArray.length > 0){
       shortLinksLocalStorageArray.forEach((shortLinkElement: HTMLLIElement) => {
-        listElement.innerHTML += shortLinkElement
+        if(listElement){
+          listElement.innerHTML += shortLinkElement
+        }
       })
     }
 }

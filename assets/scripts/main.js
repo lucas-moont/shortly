@@ -10,8 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { setupHamburgMenu } from "./menu.js";
 import { setupCopyClickEvents } from "./handlers/click-events.js";
 import { setupFormSubmit } from "./handlers/form-submit.js";
-document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
-    setupCopyClickEvents();
+import { buildShortLinksHtmlFromLocalStorage } from "./short_links/local_storage_repository/build_short_links_html_structure_by_local_storage.js";
+document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, void 0, function* () {
     setupFormSubmit();
     setupHamburgMenu();
+    yield buildShortLinksHtmlFromLocalStorage(document.querySelector(".shortenedLinksWrapper ul"));
+    setupCopyClickEvents();
 }));

@@ -13,6 +13,9 @@ export async function setupFormSubmit() {
 
   generateShortLinkForm?.addEventListener("submit", async (e) => {
     e.preventDefault()
+    if(errorText){
+      errorText.style.display = 'none'
+    }
     await processShortenedLinkFormSubmitHandler(
       shortLinkInput,
       shortenedLinksWrapper,

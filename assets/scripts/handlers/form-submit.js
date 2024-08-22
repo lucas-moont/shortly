@@ -16,6 +16,9 @@ export function setupFormSubmit() {
         const shortenedLinksWrapper = document.querySelector(".shortenedLinksWrapper ul");
         generateShortLinkForm === null || generateShortLinkForm === void 0 ? void 0 : generateShortLinkForm.addEventListener("submit", (e) => __awaiter(this, void 0, void 0, function* () {
             e.preventDefault();
+            if (errorText) {
+                errorText.style.display = 'none';
+            }
             yield processShortenedLinkFormSubmitHandler(shortLinkInput, shortenedLinksWrapper, errorText);
         }));
     });
